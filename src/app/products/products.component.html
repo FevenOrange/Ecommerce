@@ -5,13 +5,13 @@
 <div class="container" *ngIf="type== 'view'">
   <div class="row">
     <div class="col-sm-4 card" *ngFor="let product of productList">
-      <img src="../../assets/images/shoe1.jpg" class="card-img-top" alt="...">
+      <img [src]="product.imageUrl" class="card-img-top" alt="Add Picture">
       <div class="card-body">
         <h5 class="card-title">{{product.name}}</h5>
         <h5 class="card-title">{{product.price}}</h5>
         <p class="card-text">{{product.description}}</p>
         <a class="btn btn-primary" (click)="onViewDetail(product.id)">View Detail</a> &nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-primary" (click)="deleteProduct(product.name)">Delete</a>
+        <a class="btn btn-danger" (click)="deleteProduct(product.name)">Delete</a>
       </div>
     </div>
     
