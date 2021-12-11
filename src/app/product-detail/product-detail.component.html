@@ -1,0 +1,21 @@
+
+
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="updateProduct()">
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPassword" name="name" [(ngModel)]="newProduct.name" [placeholder]="selectedProduct.name">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="inputPassword" name="price" [(ngModel)]="newProduct.price" [placeholder]="selectedProduct.price">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mb-3">Submit</button>
+      </form>
+    </div>
+  </div>

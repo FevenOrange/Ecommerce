@@ -1,0 +1,39 @@
+<br><br>
+<button type="button" class="btn btn-primary mb-3 add-product" (click)="onAdd()" *ngIf="type== 'view'">Add New Product</button>
+<button type="button" class="btn btn-primary mb-3 add-product" (click)="onBack()" *ngIf="type== 'add'">Back</button>
+
+<div class="container" *ngIf="type== 'view'">
+  <div class="row">
+    <div class="col-sm-4 card" *ngFor="let product of productList">
+      <img src="../../assets/images/shoe1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <h5 class="card-title">{{product.price}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <a class="btn btn-primary" (click)="onViewDetail(product.id)">View Detail</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-primary" (click)="deleteProduct(product.name)">Delete</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="add-card" *ngIf="type== 'add'">
+  <div class="card-body">
+    <form (ngSubmit)="addProduct()">
+      <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword" name="name" [(ngModel)]="newProduct.name" >
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Price</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputPassword" name="price" [(ngModel)]="newProduct.price">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </form>
+  </div>
+</div>
